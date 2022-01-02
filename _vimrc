@@ -13,8 +13,8 @@ set nobackup
 set nowritebackup 
 set noerrorbells
 set vb t_vb=
-" set guioptions+=m 
-" set guioptions+=T
+set guioptions-=m 
+set guioptions-=T
 colorscheme dracula
 "}}}
 
@@ -109,5 +109,8 @@ let g:floaterm_keymap_toggle = '<F12>'
 " let g:vimtex_view_method = 'mupdf'
 let g:vimtex_view_general_viewer = 'okular'
 let maplocalleader=','
+
+nnoremap <F5> :VimtexCompile<cr>
+nnoremap <F7> :VimtexView<cr>
 "}}}
 
