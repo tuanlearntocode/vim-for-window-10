@@ -6,16 +6,20 @@ set foldmethod=marker
 set number
 set relativenumber
 set clipboard=unnamedplus
-set guifont=FiraCode\ NF:h13
 set backspace=2
 set noswapfile
 set nobackup
 set nowritebackup 
 set noerrorbells
 set vb t_vb=
-set guioptions-=m 
-set guioptions-=T
-colorscheme dracula
+if has("gui_running")
+ set guioptions-=m 
+ set guioptions-=T
+ "No scroll bar
+ set guioptions-=r
+ colorscheme dracula
+ set guifont=FiraCode\ NF:h13
+endif
 "}}}
 
 "Key Binding{{{
@@ -38,6 +42,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/unicode.vim'
 Plug 'lervag/vimtex'
+"This is for snippet 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 "}}}
 
@@ -47,7 +54,8 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-git',
   \ 'coc-pyright',
-  \ 'coc-emmet'
+  \ 'coc-emmet',
+  \ 'coc-vimtex',
   \ ]
 "}}}
 
