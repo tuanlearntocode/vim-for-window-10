@@ -43,8 +43,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/unicode.vim'
 Plug 'lervag/vimtex'
 "This is for snippet 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 call plug#end()
 "}}}
 
@@ -60,7 +58,7 @@ let g:coc_global_extensions = [
 "}}}
 
 "Coc Config{{{
-"c‡i d?t cho tab, shift-tab
+"c√†i d?t cho tab, shift-tab
 verbose imap <tab>
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -69,13 +67,13 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 
-"–?i tÍn h‡m
+"√ê?i t√™n h√†m
 nmap <leader>rn <Plug>(coc-rename)
 
 "" Map Ctrl + Space d? show list functions/bi?n autocomplete
 inoremap <silent><expr> <c-space> coc#refresh()
 
-"" T? d?ng import file c?a bi?n/function khi ch?n v‡ nh?n Tab
+"" T? d?ng import file c?a bi?n/function khi ch?n v√† nh?n Tab
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
 "" Go to definition ? tab m?i
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
@@ -113,12 +111,5 @@ let g:floaterm_keymap_toggle = '<F12>'
 "endfunction
 ""}}}
 
-"Vimtex Config{{{
-" let g:vimtex_view_method = 'mupdf'
-let g:vimtex_view_general_viewer = 'okular'
-let maplocalleader=','
-
-nnoremap <F5> :VimtexCompile<cr>
-nnoremap <F7> :VimtexView<cr>
 "}}}
 
