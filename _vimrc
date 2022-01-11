@@ -48,7 +48,6 @@ Plug 'tpope/vim-commentary'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/unicode.vim'
-Plug 'lervag/vimtex'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 "This is for snippet 
