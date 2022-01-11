@@ -2,6 +2,7 @@
 syntax on 
 filetype indent on 
 set encoding=utf-8
+set fileencoding=utf-8
 set foldmethod=marker
 set number
 set relativenumber
@@ -12,14 +13,20 @@ set nobackup
 set nowritebackup 
 set noerrorbells
 set vb t_vb=
+set cursorline
+highlight CursorLine gui=underline cterm=underline
+au GUIEnter * simalt ~x
 if has("gui_running")
  set guioptions-=m 
  set guioptions-=T
  "No scroll bar
  set guioptions-=r
  colorscheme dracula
- set guifont=FiraCode\ NF:h13
+ set background=dark
+ set guifont=hack\ NF:h13
+ " set guifont=Consolas:h13:b
 endif
+
 "}}}
 
 "Key Binding{{{
@@ -42,6 +49,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/unicode.vim'
 Plug 'lervag/vimtex'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree'
 "This is for snippet 
 call plug#end()
 "}}}
@@ -53,20 +62,26 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-pyright',
   \ 'coc-emmet',
-  \ 'coc-vimtex',
+  \ 'coc-prettier',
+  \ 'coc-pairs',
   \ ]
 "}}}
 
 "Coc Config{{{
 "cài d?t cho tab, shift-tab
-verbose imap <tab>
+function! s:check_back_space() abort
+	let col = col('.')-1
+	return !col || getline('.')[col-1] =~ '\s'
+endfunction
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-
+"make <cr> for confirm completion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "Ð?i tên hàm
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -74,7 +89,7 @@ nmap <leader>rn <Plug>(coc-rename)
 inoremap <silent><expr> <c-space> coc#refresh()
 
 "" T? d?ng import file c?a bi?n/function khi ch?n và nh?n Tab
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
+" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
 "" Go to definition ? tab m?i
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -111,5 +126,17 @@ let g:floaterm_keymap_toggle = '<F12>'
 "endfunction
 ""}}}
 
+"Airline Config{{{
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail'
+nnoremap <right> <nop>
+nnoremap <left> <nop>
+nnoremap <right> :tabn<cr>
+nnoremap <left> :tabp<cr>
 "}}}
 
+"Prettier Config{{{
+" :CocConfig
+"Add "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "html",
+""python"],
+"}}}
