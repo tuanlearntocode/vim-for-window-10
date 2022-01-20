@@ -14,6 +14,7 @@ set nowritebackup
 set noerrorbells
 set vb t_vb=
 set cursorline
+set lines=35 columns=150 "set window size
 highlight CursorLine gui=underline cterm=underline
 au GUIEnter * simalt ~x
 if has("gui_running")
@@ -50,6 +51,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/unicode.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
+Plug 'mattn/vimtweak'
+Plug 'tsuyoshicho/transparency.vim'
 "This is for snippet 
 call plug#end()
 "}}}
@@ -138,4 +141,14 @@ nnoremap <left> :tabp<cr>
 " :CocConfig
 "Add "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "html",
 ""python"],
+"}}}
+
+"Transparency config{{{
+let g:transparency_config = {
+		\ 'active':95,
+		\ 'inactive':70
+	  \ }
+let g:transparency_ctermbg_none =1
+nmap <F3> <Plug>(TransparencyOn)
+nmap <F4> <Plug>(TransparencyOff)
 "}}}
