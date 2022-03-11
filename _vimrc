@@ -53,6 +53,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'mattn/vimtweak'
 Plug 'tsuyoshicho/transparency.vim'
+Plug 'Valloric/MatchTagAlways'
 "This is for snippet 
 call plug#end()
 "}}}
@@ -70,6 +71,21 @@ let g:coc_global_extensions = [
 "}}}
 
 "Coc Config{{{
+"" ctrl space to trigger completion
+"inoremap <silent><expr> <c-space> coc#refresh() 
+"" Use <cr> to comfirm completion
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>": "\<C-g>u\<CR>"
+"" Use <tab> to trigger completion and navigate
+"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"" GoTo code navigation.
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+
+"" Use K to show documentation in preview window.
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
 "cài d?t cho tab, shift-tab
 function! s:check_back_space() abort
 	let col = col('.')-1
@@ -108,8 +124,7 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-"}}}
+""}}}
 
 "Floaterm Config{{{
 let g:floaterm_keymap_new = '<leader>ft'
@@ -151,4 +166,14 @@ let g:transparency_config = {
 let g:transparency_ctermbg_none =1
 nmap <F3> <Plug>(TransparencyOn)
 nmap <F4> <Plug>(TransparencyOff)
+"}}}
+
+"Highlight tag{{{
+let g:mta_use_matchparen_group = 1
+let g:mta_filetype = {
+		\ 'html' : 1,
+		\'xhtml':1,
+		\'xml':1,
+		\'jinja':1,
+	  \ }
 "}}}
