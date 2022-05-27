@@ -120,7 +120,8 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>" 
 
 "<CR> for confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "Trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
