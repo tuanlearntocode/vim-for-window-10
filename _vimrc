@@ -33,6 +33,7 @@ set updatetime=300
 if has("gui_running")
 	set guioptions-=m
 	set guioptions-=T
+    set guioptions-=L
 	set guioptions-=r
 	set background=dark
 	set guifont=hack\ nf:h13
