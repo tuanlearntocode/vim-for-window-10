@@ -13,4 +13,7 @@
 # Cài đặt theme dracula
 - Vô F:/Vim/plugged/dracula
 - Copy lần lượt **dracula.vim** trong autoload và colors của **F:/Vim/plugged/dracula** bỏ vào autoload và colors trong **F:/Vim**
+# Markdown preview vim
+- Nếu gõ lệnh `MarkdownPreview` mà không thấy gì xảy ra thì vào *Vim* gõ `:call mkdp#util#install()` và chờ nó cài xong là được
+
 # Goodluck 😋😋😋
